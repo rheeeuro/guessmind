@@ -3,8 +3,8 @@ import sass from "gulp-sass";
 import autoprefixer from "gulp-autoprefixer";
 import minifyCSS from "gulp-csso";
 import del from "del";
-import bro from "gulp-browserify";
-import babel from "babelify";
+import browserify from "gulp-browserify";
+import babelify from "babelify";
 
 sass.compiler = require("node-sass");
 
@@ -40,9 +40,9 @@ const js = () =>
   gulp
     .src(paths.js.src)
     .pipe(
-      bro({
+      browserify({
         transform: [
-          babel.configure({
+          babelify.configure({
             presets: ["@babel/preset-env"]
           })
         ]
