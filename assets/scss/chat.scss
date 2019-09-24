@@ -3,9 +3,11 @@
     overflow-x: hidden;
     .chat__messages {
       overflow: scroll;
-      width: 108%;
+      scroll-behavior: smooth;
+      width: 110%;
       padding: 20px 10px;
       background-color: white;
+      margin-bottom: 10px;
       height: 50vh;
       border-radius: 10px;
       box-shadow: 0 3px 36px rgba(23, 55, 87, 0.1),
