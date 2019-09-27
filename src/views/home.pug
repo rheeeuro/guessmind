@@ -13,8 +13,9 @@ html(lang="en")
                 input(placeholder="이름을 입력하세요", type="text")
         .gameContainer#jsGame
             .main
+                #jsNotifs
                 canvas.canvas#jsCanvas
-                .controls#controls
+                .controls#jsControls
                     button#jsMode 채우기
                     .colors
                         .color.jsColor(style="background-color:rgb(0, 0, 0)")
@@ -27,6 +28,7 @@ html(lang="en")
                         .color.jsColor(style="background-color:rgb(0,122,255)")
                         .color.jsColor(style="background-color:rgb(88,86,214)")            
             .chat
+                .player__board#jsPlayerBoard
                 .chat__container#jsMessageContainer
                     ul.chat__messages#jsMessages
                 form.chat__form#jsSendMsg
