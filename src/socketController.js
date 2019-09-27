@@ -5,6 +5,7 @@ let sockets = [];
 let inProgress = false;
 let word = null;
 let painter = null;
+let timeout = null;
 
 const choosePainter = () => sockets[Math.floor(Math.random() * sockets.length)];
 
@@ -23,6 +24,7 @@ const socketController = (socket, io) => {
         setTimeout(() => {
           superBroadcast(events.gameStarted);
           io.to(painter.id).emit(events.painterNotification, { word });
+          timeout = setTimeout(endGame, 31000);
         }, 5000);
       }
     }
@@ -30,6 +32,13 @@ const socketController = (socket, io) => {
   const endGame = () => {
     inProgress = false;
     superBroadcast(events.gameEnded);
+    if (timeout !== null) {
+      clearTimeout(timeout);
+      // superBroadcast(events.newMsg, {
+      //   message: `시간이 초과되었습니다, 정답은 ${word}입니다`,
+      //   nickname: "서버"
+      // });
+    }
     setTimeout(() => startGame(), 2000);
   };
   const addPoints = id => {
