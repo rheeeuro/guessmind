@@ -9,6 +9,7 @@ import { disableChat, enableChat } from "./chat";
 
 const board = document.getElementById("jsPlayerBoard");
 const notifs = document.getElementById("jsNotifs");
+const timeNotif = document.getElementById("jsTimeNotif");
 
 const addPlayers = players => {
   board.innerText = "";
@@ -41,7 +42,14 @@ export const handleGameEnded = () => {
   disableCanvas();
   hideControls();
   resetCanvas();
+  timeNotif.innerText = "";
 };
 export const handleGameStarting = () => {
   setNotifs("게임이 곧 시작됩니다!");
+  timeNotif.innerText = "";
+};
+
+export const handleTimeRefresh = ({ timeCount }) => {
+  timeNotif.innerText = "";
+  timeNotif.innerText = ` / 남은 시간: ${timeCount}초`;
 };

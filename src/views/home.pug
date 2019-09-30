@@ -13,10 +13,14 @@ html(lang="en")
                 input(placeholder="이름을 입력하세요", type="text")
         .gameContainer#jsGame
             .main
-                #jsNotifs
+                .notifContainer
+                    span#jsNotifs
+                    span#jsTimeNotif
                 canvas.canvas#jsCanvas
                 .controls#jsControls
-                    button#jsMode 채우기
+                    .buttonConatiner
+                        button#jsMode 채우기
+                        button#jsClear 지우기
                     .colors
                         .color.jsColor(style="background-color:rgb(0, 0, 0)")
                         .color.jsColor(style="background-color:rgb(255,255,255)")

@@ -6,6 +6,8 @@ let inProgress = false;
 let word = null;
 let painter = null;
 let timeout = null;
+let timeInterval = null;
+let timeCount = null;
 
 const choosePainter = () => sockets[Math.floor(Math.random() * sockets.length)];
 
@@ -24,7 +26,18 @@ const socketController = (socket, io) => {
         setTimeout(() => {
           superBroadcast(events.gameStarted);
           io.to(painter.id).emit(events.painterNotification, { word });
-          timeout = setTimeout(endGame, 31000);
+          timeout = setTimeout(() => {
+            superBroadcast(events.newMsg, {
+              message: `시간이 초과되었습니다, 정답은 ${word}입니다`,
+              nickname: "서버"
+            });
+            endGame();
+          }, 31000);
+          timeCount = 30;
+          timeInterval = setInterval(() => {
+            superBroadcast(events.timeRefresh, { timeCount });
+            timeCount -= 1;
+          }, 1000);
         }, 5000);
       }
     }
@@ -34,10 +47,10 @@ const socketController = (socket, io) => {
     superBroadcast(events.gameEnded);
     if (timeout !== null) {
       clearTimeout(timeout);
-      // superBroadcast(events.newMsg, {
-      //   message: `시간이 초과되었습니다, 정답은 ${word}입니다`,
-      //   nickname: "서버"
-      // });
+    }
+    if (timeInterval !== null) {
+      clearInterval(timeInterval);
+      timeCount = 30;
     }
     setTimeout(() => startGame(), 2000);
   };

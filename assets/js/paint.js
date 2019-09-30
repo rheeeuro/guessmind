@@ -5,6 +5,7 @@ const controls = document.getElementById("jsControls");
 const ctx = canvas.getContext("2d");
 const colors = document.getElementsByClassName("jsColor");
 const mode = document.getElementById("jsMode");
+const clear = document.getElementById("jsClear");
 
 const INITIAL_COLOR = "#2c2c2c";
 const CANVAS_SIZE = 500;
@@ -96,12 +97,20 @@ function handleCM(event) {
   event.preventDefault();
 }
 
+const handleClear = () => {
+  fill("#fff");
+  getSocket().emit(window.events.fill, { color: "#fff" });
+};
+
 Array.from(colors).forEach(color =>
   color.addEventListener("click", handleColorClick)
 );
 
 if (mode) {
   mode.addEventListener("click", handleModeClick);
+}
+if (clear) {
+  clear.addEventListener("click", handleClear);
 }
 
 export const handleBeganPath = ({ x, y }) => beginPath(x, y);

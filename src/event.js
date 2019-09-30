@@ -15,7 +15,8 @@ const events = {
   gameStarted: "gameStarted",
   painterNotification: "painterNotification",
   gameEnded: "gameEnded",
-  gameStarting: "gameStarting"
+  gameStarting: "gameStarting",
+  timeRefresh: "timeRefresh"
 };
 
 export default events;
