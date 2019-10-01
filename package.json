@@ -27,7 +27,8 @@
   },
   "scripts": {
     "dev:server": "nodemon --exec babel-node src/server --ignore assets/ --ignore src/static",
-    "dev:assets": "gulp"
+    "dev:assets": "gulp",
+    "start": "node src/server.js"
   },
   "devDependencies": {
     "eslint-config-prettier": "^6.3.0",
