@@ -13,6 +13,7 @@
     "@babel/preset-env": "^7.4.3",
     "babelify": "^10.0.0",
     "del": "^4.1.0",
+    "dotenv": "^8.1.0",
     "eslint": "^5.16.0",
     "express": "^4.16.4",
     "gulp": "^4.0.0",
@@ -20,6 +21,7 @@
     "gulp-browserify": "^0.5.1",
     "gulp-csso": "^3.0.1",
     "gulp-sass": "^4.0.2",
+    "helmet": "^3.21.1",
     "morgan": "^1.9.1",
     "node-sass": "^4.11.0",
     "nodemon": "^1.18.11",
@@ -32,10 +34,10 @@
     "dev:assets": "gulp",
     "build:assets": "gulp",
     "build:server": "babel src --out-dir build --ignore 'src/static'",
-    "copyAll": "shx cp -r src/static build/ && shx cp -r src/views build/views",
+    "copyAll": "shx cp -r src/static build/ && shx cp -r src/views build/",
     "build": "npm run build:server && npm run copyAll",
     "heroku-prebuild": "rm -rf build",
-    "start": "node build/server",
+    "start": "node build/server.js",
     "prestart": "npm run build"
   },
   "devDependencies": {

@@ -2,11 +2,14 @@ import { join } from "path";
 import express from "express";
 import socketIO from "socket.io";
 import logger from "morgan";
+import helmet from "helmet";
 import socketController from "./socketController";
 import events from "./event";
 
 const PORT = 4000;
 const app = express();
+
+app.use(helmet());
 app.set("view engine", "pug");
 app.set("views", join(__dirname, "views"));
 app.use(logger("dev"));
