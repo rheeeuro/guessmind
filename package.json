@@ -7,6 +7,7 @@
   "author": "eurohand <eurohand@naver.com>",
   "license": "MIT",
   "dependencies": {
+    "@babel/cli": "^7.6.2",
     "@babel/core": "^7.4.3",
     "@babel/node": "^7.2.2",
     "@babel/preset-env": "^7.4.3",
@@ -23,12 +24,19 @@
     "node-sass": "^4.11.0",
     "nodemon": "^1.18.11",
     "pug": "^2.0.3",
+    "shx": "^0.3.2",
     "socket.io": "^2.2.0"
   },
   "scripts": {
     "dev:server": "nodemon --exec babel-node src/server --ignore assets/ --ignore src/static",
     "dev:assets": "gulp",
-    "start": "node src/server.js"
+    "build:assets": "gulp",
+    "build:server": "babel src --out-dir build --ignore 'src/static'",
+    "copyAll": "shx cp -r src/static build/static && shx cp -r src/views build/views",
+    "build": "npm run build:server && npm run copyAll",
+    "heroku-prebuild": "rm -rf build",
+    "start": "node build/server",
+    "prestart": "npm run build"
   },
   "devDependencies": {
     "eslint-config-prettier": "^6.3.0",
