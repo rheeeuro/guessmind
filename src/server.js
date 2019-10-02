@@ -3,10 +3,13 @@ import express from "express";
 import socketIO from "socket.io";
 import logger from "morgan";
 import helmet from "helmet";
+import dotenv from "dotenv";
 import socketController from "./socketController";
 import events from "./event";
 
-const PORT = 4000;
+dotenv.config();
+
+const PORT = process.env.PORT || 4000;
 const app = express();
 
 app.use(helmet());
