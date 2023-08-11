@@ -7,27 +7,27 @@
   "author": "eurohand <eurohand@naver.com>",
   "license": "MIT",
   "dependencies": {
-    "@babel/cli": "^7.6.2",
-    "@babel/core": "^7.4.3",
-    "@babel/node": "^7.2.2",
-    "@babel/preset-env": "^7.4.3",
+    "@babel/cli": "^7.22.10",
+    "@babel/core": "^7.22.10",
+    "@babel/node": "^7.22.10",
+    "@babel/preset-env": "^7.22.10",
     "babelify": "^10.0.0",
-    "del": "^4.1.0",
-    "dotenv": "^8.1.0",
-    "eslint": "^5.16.0",
-    "express": "^4.16.4",
-    "gulp": "^4.0.0",
-    "gulp-autoprefixer": "^6.0.0",
+    "del": "^7.0.0",
+    "dotenv": "^16.3.1",
+    "eslint": "^8.46.0",
+    "express": "^4.18.2",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
     "gulp-browserify": "^0.5.1",
-    "gulp-csso": "^3.0.1",
-    "gulp-sass": "^4.0.2",
-    "helmet": "^3.21.1",
-    "morgan": "^1.9.1",
-    "node-sass": "^4.11.0",
-    "nodemon": "^1.18.11",
-    "pug": "^2.0.3",
-    "shx": "^0.3.2",
-    "socket.io": "^2.2.0"
+    "gulp-csso": "^4.0.1",
+    "gulp-sass": "^5.1.0",
+    "helmet": "^7.0.0",
+    "morgan": "^1.10.0",
+    "node-sass": "^9.0.0",
+    "nodemon": "^3.0.1",
+    "pug": "^3.0.2",
+    "shx": "^0.3.4",
+    "socket.io": "^4.7.2"
   },
   "scripts": {
     "dev:server": "nodemon --exec babel-node src/server --ignore assets/ --ignore src/static",
@@ -41,8 +41,8 @@
     "prestart": "npm run build"
   },
   "devDependencies": {
-    "eslint-config-prettier": "^6.3.0",
-    "eslint-plugin-prettier": "^3.1.1",
-    "prettier": "^1.18.2"
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "prettier": "^3.0.1"
   }
 }

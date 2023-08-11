@@ -12,7 +12,16 @@ dotenv.config();
 const PORT = process.env.PORT || 4000;
 const app = express();
 
-app.use(helmet());
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      directives: {
+        ...helmet.contentSecurityPolicy.getDefaultDirectives(),
+        "script-src": ["'self'", "'unsafe-inline'", "example.com"],
+      },
+    },
+  })
+);
 app.set("view engine", "pug");
 app.set("views", join(__dirname, "views"));
 app.use(logger("dev"));
@@ -26,6 +35,6 @@ const handleListening = () =>
 
 const server = app.listen(PORT, handleListening);
 
-const io = socketIO.listen(server);
+const io = socketIO(server);
 
-io.on("connection", socket => socketController(socket, io));
+io.on("connection", (socket) => socketController(socket, io));
