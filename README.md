@@ -1,6 +1,6 @@
 # Guess Mind
 
-https://guessmind-rheeeuro.herokuapp.com/
+https://guessmind-rheeeuro.koyeb.app/
 Realtime Drawing Game built with SocketIO, Gulp and Node
 
 ## To DO:
