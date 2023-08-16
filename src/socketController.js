@@ -33,7 +33,7 @@ const socketController = (socket, io) => {
             });
             endGame();
           }, 31000);
-          timeCount = 30;
+          timeCount = 45;
           timeInterval = setInterval(() => {
             superBroadcast(events.timeRefresh, { timeCount });
             timeCount -= 1;
@@ -50,7 +50,7 @@ const socketController = (socket, io) => {
     }
     if (timeInterval !== null) {
       clearInterval(timeInterval);
-      timeCount = 30;
+      timeCount = 45;
     }
     setTimeout(() => startGame(), 2000);
   };
