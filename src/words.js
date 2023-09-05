@@ -8229,3 +8229,5 @@ const words = [
   "팔월의크리스마스",
   "호로비츠를위하여",
 ];
+
+export const chooseWord = () => words[Math.floor(Math.random() * words.length)];
