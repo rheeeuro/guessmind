@@ -22,7 +22,7 @@
     "gulp-csso": "^4.0.1",
     "gulp-sass": "^5.1.0",
     "helmet": "^7.0.0",
-    "morgan": "^1.10.0",
+    "morgan": "^1.10.1",
     "node-sass": "^9.0.0",
     "nodemon": "^3.0.1",
     "pug": "^3.0.3",
